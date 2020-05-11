@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
      //import class ki hay yaha
         values.put(com.example.contentprovider.UserProvider.name, ((EditText) findViewById(R.id.txtName)).getText().toString());
         //phoneNo on click functionality is added
-        //values.put(UserProvider.phoneNo, ((EditText) findViewById(R.id.Edt_phoneNo)).getText().toString());
+        values.put(UserProvider.phoneNo, ((EditText) findViewById(R.id.Edt_phoneNo)).getText().toString());
         getContentResolver().insert(com.example.contentprovider.UserProvider.CONTENT_URI, values);
         Toast.makeText(getBaseContext(), "New Record Inserted", Toast.LENGTH_LONG).show();
     }
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
             StringBuilder strBuild=new StringBuilder();
             while (!cursor.isAfterLast()) {
                 //view details on phoneNO field is added
-                strBuild.append("\n"+cursor.getString(cursor.getColumnIndex("id"))+ "-"+ cursor.getString(cursor.getColumnIndex("name"))+
+                strBuild.append("\n"+cursor.getString(cursor.getColumnIndex("id"))+ "-"+ cursor.getString(cursor.getColumnIndex("name") ) +
                         "-" + cursor.getString(cursor.getColumnIndex("phoneNo")));
                 cursor.moveToNext();
             }

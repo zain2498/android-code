@@ -23,8 +23,8 @@ public class UserProvider extends ContentProvider {
     static final String name = "name";
     //Field is added
     static final String phoneNo = "phoneNO";
-    static final int uriCode = 1;
 
+    static final int uriCode = 1;
     static final UriMatcher uriMatcher;
     private static HashMap<String, String> values;
     static {
@@ -32,7 +32,7 @@ public class UserProvider extends ContentProvider {
         uriMatcher.addURI(PROVIDER_NAME, "users", uriCode);
         uriMatcher.addURI(PROVIDER_NAME, "users/*", uriCode);
        //another URI matcher is add for the phoneNo field
-        uriMatcher.addURI(PROVIDER_NAME, "users/*", uriCode);
+       // uriMatcher.addURI(PROVIDER_NAME, "users/*", uriCode);
     }
 
     @Override
@@ -122,7 +122,7 @@ public class UserProvider extends ContentProvider {
   //ADDED a coloumn IN THE DATABASE
     static final String CREATE_DB_TABLE = " CREATE TABLE " + TABLE_NAME
             + " (id INTEGER PRIMARY KEY AUTOINCREMENT, "
-            + " name TEXT NOT NULL, " + " phoneNo INTEGER NOT NULL);";
+            + " name TEXT NOT NULL, " + " phoneNo TEXT NOT NULL);";
 
     private static class DatabaseHelper extends SQLiteOpenHelper {
         DatabaseHelper(Context context) {
